@@ -1,4 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
+import { X } from "phosphor-react";
+import { Link } from "react-router-dom";
+
 import { Lesson } from "./Lesson";
 
 const GET_LESSONS_QUERY = gql`
@@ -23,15 +26,25 @@ interface GetLessonsQueryResponse {
   }[];
 }
 
-export function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+}
+
+export function Sidebar({ isOpen }: SidebarProps) {
   const { data } = useQuery<GetLessonsQueryResponse>(GET_LESSONS_QUERY);
+
   return (
-    <aside className="w-[348px] bg-gray-700 p-6 border-l border-gray-600">
-      <span className="font-bold text-2xl pb-6 mb-6 border-b border-gray-500 block">
+    <aside
+      className={[
+        "block w-full md:w-[358px] fixed md:static bg-gray-600 px-8 [@media(max-width:869px)]:h-full transition-[left] smooth delay-700 z-50",
+        `${isOpen ? "" : "[@media(max-width:869px)]:left-out"}`,
+      ].join(" ")}
+    >
+      <span className="block w-full my-6 text-gray-100 text-xl font-bold">
         Cronograma de aulas
       </span>
 
-      <div className="flex flex-col gap-8">
+      <div className="w-full flex flex-col gap-5 overflow-y-auto">
         {data?.lessons.map((lesson) => {
           return (
             <Lesson

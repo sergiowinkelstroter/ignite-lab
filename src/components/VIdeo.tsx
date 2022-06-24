@@ -3,6 +3,7 @@ import {
   CaretRight,
   DiscordLogo,
   FileArrowDown,
+  Image,
   Lightning,
 } from "phosphor-react";
 import { gql, useQuery } from "@apollo/client";
@@ -55,25 +56,25 @@ export function Video(props: VideoProps) {
     );
   }
   return (
-    <div className="flex-1">
+    <div className="lg:flex-1">
       <div className="bg-black flex justify-center">
-        <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
+        <div className="h-full w-full max-w-[900px] max-h-[60vh] aspect-video">
           <Player>
-            <Youtube videoId={data.lesson.videoId} />
+            <Youtube videoId={data.lesson.videoId} key={data.lesson.videoId} />
             <DefaultUi />
           </Player>
         </div>
       </div>
 
       <div className="p-8 max-w-[1100px] mx-auto">
-        <div className="flex items-start gap-16 ">
+        <div className="lg:flex items-start gap-16 ">
           <div className="flex-1">
             <h1 className="text-2xl font-bold ">{data.lesson.title}</h1>
             <p className="mt-4 text-gray-200 leading-relaxed">
               {data.lesson.description}
             </p>
 
-            <div className="flex items-center gap-4 mt-6">
+            <div className="flex items-center gap-4 my-6">
               <img
                 src={data.lesson.teacher.avatarURL}
                 alt=""
@@ -109,7 +110,7 @@ export function Video(props: VideoProps) {
           </div>
         </div>
 
-        <div className="gap-8 mt-20 grid grid-cols-2">
+        <div className="gap-8 mt-20 grid lg:grid-cols-2 grid-cols-1">
           <a
             href=""
             className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors"
@@ -134,7 +135,7 @@ export function Video(props: VideoProps) {
             className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors"
           >
             <div className="bg-green-700 h-full p-6 flex items-center">
-              <FileArrowDown />
+              <Image />
             </div>
             <div className="py-6 leading-relaxed">
               <strong className="text-2xl">Wallpapers exclusivos</strong>
