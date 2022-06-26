@@ -33,7 +33,7 @@ export function Lesson(props: LessonProps) {
 
       <div
         className={classNames(
-          "rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500",
+          "rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500 ",
           {
             "bg-green-500": isActiveLesson,
           }
