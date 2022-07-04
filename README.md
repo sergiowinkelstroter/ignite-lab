@@ -1,4 +1,5 @@
-##Ignite Lab EventPlatform 
+#Ignite Lab EventPlatform 
+
 Projeto desenvolvido durante o evento da <a href="https://www.rocketseat.com.br/"> Rocketseat</a> - Ignite Lab. O objetivo foi criar uma plataforma de eventos em React, utilizando/criando uma API GraphQL com a linguagem Typescript
 
 ## Tecnologias utilizadas: 
