@@ -3,6 +3,8 @@ import { isPast, format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import { Link, useParams } from "react-router-dom";
 import classNames from "classnames";
+import { useContext } from "react";
+import { SidebarContext } from "../context/SidebarContextProvider";
 
 interface LessonProps {
   title: string;

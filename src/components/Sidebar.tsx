@@ -1,26 +1,27 @@
+import { useContext } from "react";
+import { SidebarContext } from "../context/SidebarContextProvider";
+
 import { useGetLessonsQuery } from "../graphql/generated";
 
 import { Lesson } from "./Lesson";
 
-interface SidebarProps {
-  isOpen: boolean;
-}
-
-export function Sidebar({ isOpen }: SidebarProps) {
+export function Sidebar() {
   const { data } = useGetLessonsQuery();
+  const { sidebarOpen } = useContext(SidebarContext);
 
   return (
     <aside
-      className={[
-        "block w-full md:w-[358px] fixed md:static bg-gray-600 px-8 [@media(max-width:869px)]:h-full transition-[left] smooth delay-700 z-50",
-        `${isOpen ? "" : "[@media(max-width:869px)]:left-out"}`,
-      ].join(" ")}
+      className={`w-[348px] lg:visible ${
+        !sidebarOpen
+          ? "lg:block hidden"
+          : "visible absolute z-50 min-w-full min-h-screen"
+      } bg-gray-700 p-6 border-l border-gray-600`}
     >
       <span className="block w-full my-6 text-gray-100 text-xl font-bold">
         Cronograma de aulas
       </span>
 
-      <div className="w-full flex flex-col gap-5 overflow-y-auto">
+      <div className="w-full flex flex-col gap-5">
         {data?.lessons.map((lesson) => {
           return (
             <Lesson

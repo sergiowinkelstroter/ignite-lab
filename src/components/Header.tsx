@@ -1,20 +1,21 @@
 import { Logo } from "./Logo";
-import { HamburgerButton } from "./Burguer-button";
+import { useContext } from "react";
+import { SidebarContext } from "../context/SidebarContextProvider";
+import HamburguerSidebar from "./HamburguerSidebar";
+import CloseSidebar from "./CloseSidebar";
 
-interface HeaderProps {
-  isMenuOpen: boolean;
-  handleOpenMenu: () => void;
-}
+export function Header() {
+  const { sidebarOpen, toogleSidebar } = useContext(SidebarContext);
 
-export function Header({ isMenuOpen, handleOpenMenu }: HeaderProps) {
   return (
-    <header className="w-[100vw] 2xl-[1248px] flex items-center justify-between md:justify-center py-[1.45rem] px-4 bg-gray-600 border-b border-gray-400">
+    <header className="w-full py-5 flex items-center lg:justify-center justify-between lg:px-0 px-4 bg-gray-700 border-b border-gray-600">
       <Logo />
-      <HamburgerButton
-        className="text-gray-100 md:hidden"
-        onClick={handleOpenMenu}
-        isOpen={isMenuOpen}
-      />
+      <div className="flex items-center gap-2 lg:hidden">
+        Aulas
+        <button className="transition-all" onClick={toogleSidebar}>
+          {sidebarOpen ? <HamburguerSidebar /> : <CloseSidebar />}
+        </button>
+      </div>
     </header>
   );
 }

@@ -1,6 +1,9 @@
+import classNames from "classnames";
+
 export function Logo() {
   return (
     <svg
+      className="h-[1.45rem] lg:h-[2rem] w-auto"
       xmlns="http://www.w3.org/2000/svg"
       width="237"
       height="34"
