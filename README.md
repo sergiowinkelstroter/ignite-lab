@@ -20,7 +20,7 @@ Você pode visualizar o layout do projeto original através deste [Link](https:/
 
 ## Para visualizar o projeto funcionando, clique no link abaixo !
 
-https://ignite-r33h1u3wr-wink07.vercel.app/
+[https://ignite-lab-tan.vercel.app/]
 
 ### .env Exemplo: '.env.local'
 
